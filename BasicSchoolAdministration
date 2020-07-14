@@ -5,14 +5,13 @@ import csv
 def write_into_csv(info_list):
     with open('student_info.csv','a',newline='') as csv_file:
         writer=csv.writer(csv_file)
-
-        if csv_file.tell()==0:
+    if csv_file.tell()==0:
             writer.writerow(["Name","Age","Contact Number","Email-ID"])
 
-        writer.writerow(info_list)
+    writer.writerow(info_list)
+
 
 if __name__=='__main__':
-
     condition=True
     student_num=1
 
@@ -29,16 +28,12 @@ if __name__=='__main__':
 
         if choice_check=='yes'or choice_check=='Yes' or choice_check=='YES':
            write_into_csv(student_information_list)
-    
-            condition_check=input("Enter (Yes or No) if you want to enter information for another student: ")
-
-            if condition_check=="yes" or condition_check=="Yes" or condition_check=="YES":
-                condition=True
-                student_num=student_num+1
-            elif condition_check=="no" or condition_check=="No" or condition_check=="NO":
+           condition_check=input("Enter (Yes or No) if you want to enter information for another student: ")
+           if condition_check=="yes" or condition_check=="Yes" or condition_check=="YES":
+                    condition=True
+                    student_num=student_num+1
+           elif condition_check=="no" or condition_check=="No" or condition_check=="NO":
                 condition=False
-
         elif choice_check=='no' or choice_check=='No' or choice_check=='NO':
             print("\n Please re-enter the values!")
     
-
